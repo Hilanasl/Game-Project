@@ -1,0 +1,222 @@
+body {
+    background: #673AB7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #512DA8, #673AB7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #512DA8, #673AB7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+aside {
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    background-color: rgb(78, 70, 70);
+    color: white;
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-right: 60px;
+    font-family: arial;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    margin-top: 120px;
+    margin-left: 30px;
+}
+
+p {
+    font-family: 'Calibri';
+    font-size: 1.2em;;
+}
+
+h2 {
+    font-family: 'Press Start 2P', arial;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+h1 {
+    font-family: 'Press Start 2P', arial;
+}
+
+#input-points {
+    width: 250px;
+    height: 40px;
+    background-color: grey;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    font-family: 'Press Start 2P';
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 0 5px #666;
+}
+
+#blocks {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding-top: 28px;
+    background-color: black;
+    border-radius: 40px;
+}
+
+#start-btn {
+  width: 300px;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #e61487;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  font-family: 'Press Start 2P';
+}
+
+#start-btn:hover {background-color: #7c0623}
+
+#start-btn:active {
+    background-color: #e61487;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.red.active {
+    background-color: rgb(105, 25, 25);
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.blue.active {
+    background-color: rgb(23, 7, 82);
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.green.active {
+    background-color: rgb(9, 65, 9);
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.yellow.active {
+    background-color: rgb(134, 110, 2);
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.red.not-active{
+    background-color: red;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.blue.not-active {
+    background-color: blue;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.green.not-active {
+    background-color: green;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.yellow.not-active{
+    background-color: yellow;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content-lost {
+    background-color: #FDC830;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 30%; 
+    height: 10%;
+    font-size: 15px;
+    font-family: 'Press Start 2P', arial;
+  }
+
+.modal-content-win {
+    background: #FDFC47;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24FE41, #FDFC47);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24FE41, #FDFC47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; 
+    height: 10%;
+    font-size: 15px;
+    font-family: 'Press Start 2P', arial;
+ } 
+  
+  /* The Close Button */
+  .close {
+    color: rgb(44, 38, 38);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .lost {
+      font-family: 'Press Start 2P', arial;;
+  }
+
+  .win {
+    font-family: 'Press Start 2P', arial;;
+}
