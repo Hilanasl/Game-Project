@@ -4,7 +4,11 @@ const blue = document.querySelector('.blue');
 const green = document.querySelector('.green');
 const yellow = document.querySelector('.yellow');
 const input = document.querySelector('#input-points');
-const blocks = document.querySelectorAll("#blocks > div");
+const blocks = document.querySelectorAll('#blocks > div');
+let soundRed = document.querySelectorAll('audio #red');
+let soundBlue = document.querySelectorAll('audio #blue');
+let soundGreen = document.querySelectorAll('audio #green');
+let soundYellow = document.querySelectorAll('audio #yellow');
 
 let modalLost = document.querySelector(".modal-content-lost");
 let modalWin = document.querySelector(".modal-content-win");
@@ -17,12 +21,14 @@ let count = 0;
 let level = 0;
 let player = [];
 
+// -------- Generates the array with a random sequence -----------
 function generateSequence(number) {
     let colorIndex = Math.floor(Math.random() * 4);
     newGame.push(colors[colorIndex]);
     return newGame
 }
 
+// -------- Starts the game and shows the color sequence ----------
 function startGame() {
     count = 0;
     player = [];
@@ -30,11 +36,10 @@ function startGame() {
     if (newGame.length > 3) {
         setTimeout(() => 1100);
         toggleModal('show');
+        input.innerHTML = 'Points: 0';
         startGame();
         return;
     }
-
-
     let id = setInterval(() => {
         if (count === newGame.length) {
             clearInterval(id);
@@ -46,7 +51,7 @@ function startGame() {
     }, 1000)
 }
 
-
+// -------- Defines what happens when each color is activated ---------
 function displaySequence(sequence, i) {
     if (sequence[i] === 'red') {
         red.classList.toggle('not-active');
@@ -79,14 +84,14 @@ function displaySequence(sequence, i) {
     }
 }
 
-
+// ------- Checks if the player matched the computer or not -------------
 function matchPlayer() {
     if (player[level] === newGame[level]) {
         level++;
     } else {
         setTimeout(() => {
             toggleModal('show', false);
-            input.innerHTML = `Points: 0`;
+            input.innerHTML = 'Points: 0';
         }, 1100
         );
         newGame = [];
@@ -100,7 +105,7 @@ function matchPlayer() {
     }
 }
 
-
+// -------- Defines what happens when the player clicks each color ----------
 function handleClick(evt) {
     const color = evt.target.id;
     const block = evt.target
@@ -116,20 +121,17 @@ function handleClick(evt) {
     }
 }
 
-
+// -------- Triggers the game start -----------------------------
 start.addEventListener('click', () => {
     newGame = [];
     startGame();
     blocks.forEach(block => block.onclick = handleClick)
 })
 
-//---------------------Modal--------------------------
+//---------------------Modal-------------------------------
 
-
-// Get the <span> element that closes the modal
 let span = document.querySelectorAll(".close");
 
-// When the user clicks on the button, open the modal
 function toggleModal(mode = 'show', isWin = true) {
     if (mode === 'show') {
         myModal.style.display = 'block';
@@ -147,18 +149,11 @@ function toggleModal(mode = 'show', isWin = true) {
     }
 }
 
-// When the user clicks on <span> (x), close the modal
+// -------- closes the modal ---------------
 span.forEach(el => {
     el.onclick = function () {
         modalWrap.style.display = 'none';
     }
 })
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    /* if (event.target == modal) {
-         modalLost.style.display = "none";
-         modalWin.style.display = "none";
-     }*/
-}
 
